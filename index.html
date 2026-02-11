@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Happy Valentine's Day ❤️</title>
+<title>Sarang ❤️ Asmita</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #ff4e8a, #ff9a9e);
   font-family: 'Segoe UI', sans-serif;
-  text-align: center;
+  background: radial-gradient(circle at top, #ff9a9e, #fad0c4);
   color: white;
+  text-align: center;
   overflow: hidden;
 }
 
 h1 {
-  font-size: 48px;
-  margin-top: 80px;
-  animation: heartbeat 1.5s infinite;
+  margin-top: 50px;
+  font-size: 42px;
+  animation: glow 2s infinite alternate;
 }
 
-p {
-  font-size: 22px;
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 35px #ff0055; }
+}
+
+#letter {
   width: 85%;
   margin: auto;
-  line-height: 1.6;
+  font-size: 22px;
+  min-height: 150px;
+  border-right: 3px solid white;
+  white-space: pre-wrap;
 }
 
-@keyframes heartbeat {
-  0% { transform: scale(1); }
-  25% { transform: scale(1.05); }
-  40% { transform: scale(1); }
-  60% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+button {
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  background: white;
+  color: #ff4e8a;
+  cursor: pointer;
+  box-shadow: 0 0 15px pink;
+  margin-top: 25px;
 }
 
 .heart, .sparkle {
@@ -49,77 +60,34 @@ p {
   to { transform: translateY(100vh); }
 }
 
-button {
-  padding: 15px 30px;
-  font-size: 20px;
-  background: white;
-  color: #ff4e8a;
-  border: none;
-  border-radius: 30px;
-  margin-top: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 20px pink;
-  transition: transform 0.2s;
-}
-
-button:hover { transform: scale(1.1); }
-
-.signature {
-  margin-top: 40px;
-  font-size: 20px;
-  opacity: 0.9;
+#finalScreen {
+  display: none;
+  margin-top: 80px;
+  font-size: 32px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>💖 Happy Valentine's Day Asmita 💖</h1>
+<h1>✨ Sarang ❤️ Asmita ✨</h1>
 
-<p>
-From the day you came into my life, everything feels brighter and more beautiful.<br>
-Thank you for your love, your care, and for handling all my moods 😅❤️<br>
-Every late night talk, every laugh, every moment with you is special.<br>
-I’m truly the luckiest to have you.
-</p>
+<div id="letter"></div>
 
-<button onclick="showLove()">Tap Me 💘</button>
+<button onclick="showProposal()">Continue 💖</button>
 
-<div class="signature">Forever yours, <b>Sarang ❤️</b></div>
+<div id="finalScreen">
+  💍 Asmita, will you stay with me forever? 💍<br><br>
+  I love you endlessly ❤️ — Sarang
+</div>
 
-<!-- Background Music -->
 <audio autoplay loop>
-  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/mpeg">
+  <source src="https://www2.cs.uic.edu/~i101/SoundFiles/CantinaBand60.wav" type="audio/mpeg">
 </audio>
 
 <script>
-function createHeart() {
-  const heart = document.createElement('div');
-  heart.classList.add('heart');
-  heart.innerHTML = '❤️';
-  heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
-}
+const text = "Asmita,\nFrom the moment you entered my life, everything changed.\nYour smile is my peace, your voice is my favorite sound.\nEvery day with you feels like a blessing.\nThank you for loving me the way you do.\nYou are my today, tomorrow, and forever ❤️";
 
-function createSparkle() {
-  const sparkle = document.createElement('div');
-  sparkle.classList.add('sparkle');
-  sparkle.innerHTML = '✨';
-  sparkle.style.left = Math.random() * window.innerWidth + 'px';
-  sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-  document.body.appendChild(sparkle);
-  setTimeout(() => sparkle.remove(), 5000);
-}
-
-function showLove() {
-  alert("Will you be mine forever, Asmita? 💍❤️");
-}
-
-setInterval(createHeart, 300);
-setInterval(createSparkle, 500);
-</script>
-
-</body>
-</html>
+let i = 0;
+function typeWriter() {
+  if (i < text.length) {
